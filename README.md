@@ -26,7 +26,7 @@ Calculate the transformation matrix from the normal vector and correct the tilt 
 - numpy
 # Usage
 ```
-git clone 
+git clone https://github.com/ngtroku/norm2matrix.git
 cd ./norm2matrix
 python ./norm2matrix.py nx ny nz
 ```
