@@ -25,12 +25,17 @@ Calculate the transformation matrix from the normal vector and correct the tilt 
 - python3
 - numpy
 # Usage
+
+cc_formatブランチではCloudcompareの法線ベクトル表記をコピーアンドペーストして引数とできるようにしている.
+
+In the cc_format branch, it has been made possible to use CloudCompare's normal vector notation by copying and pasting it directly as an argument.
+
 ```
 git clone https://github.com/ngtroku/norm2matrix.git
 cd ./norm2matrix
-python ./norm2matrix.py nx ny nz
+python ./norm2matrix.py (nx ; ny ; nz) # CloudCompare Normal format
 ```
 ## Example
 ```
-python ./norm2matrix.py 0.039752 0.159212 0.986444
+python ./norm2matrix.py (0.039752 ; 0.159212 ; 0.986444)
 ```

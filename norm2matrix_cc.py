@@ -1,24 +1,47 @@
 import sys 
 import numpy as np
 
+def is_number(number):
+    try:
+        float(number)
+        return True
+    
+    except ValueError:
+        return False
+
+def input_converter(input_normal):
+
+    normal_vector = []
+
+    for i in range(len(input_normal)-1):
+        remove_chars = ";()"
+        number_extracted = input_normal[i+1].translate(str.maketrans("", "", remove_chars))
+
+        if is_number(number_extracted):
+            normal_vector.append(float(number_extracted))
+        else:
+            pass
+    
+    return normal_vector[0], normal_vector[1], normal_vector[2] # nx, ny, nz
+        
 def check_arg(args):
-    if len(args) == 4:
+    if len(args) == 6:
         try:
-            nx, ny, nz = float(args[1]), float(args[2]), float(args[3])
+            nx, ny, nz = input_converter(args)
             return nx, ny, nz
         except ValueError:
             print("Arguments are set to float value.")
-            print("Run command : python3 ./main.py nx ny nz")
+            print("Run command : python3 ./main.py (nx ; ny ; nz)")
             sys.exit(1)
     
-    elif len(args) < 4:
+    elif len(args) < 6:
         print("Arguments are too short.")
-        print("Run command : python3 ./main.py nx ny nz")
+        print("Run command : python3 ./main.py (nx ; ny ; nz)")
         sys.exit(1)
 
-    elif len(args) > 4:
+    elif len(args) > 6:
         print("Arguments are too long.")
-        print("Run command : python3 ./main.py nx ny nz")
+        print("Run command : python3 ./main.py (nx ; ny ; nz)")
         sys.exit(1)
 
 def calc_matrix(normal_vector):
@@ -53,6 +76,7 @@ if __name__ == "__main__":
     nx, ny, nz = check_arg(args)
 
     normal_vector = np.array([nx, ny, nz])
-    matrix = calc_matrix(normal_vector)
 
+    matrix = calc_matrix(normal_vector)
+    
     matrix_visualizer(matrix)
