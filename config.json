@@ -1,0 +1,27 @@
+{
+    "io":{
+        "input_file_name":"./demo_4.pcd",
+        "output_file_name":"./test_4.pcd"
+    },
+
+    "preprocess":{
+        "is_preprocess":"False",
+        "voxel_size":0.1
+    },
+
+    "postprocess":{
+        "outlier_removal":"False",
+        "n_neighbors":10,
+        "std_ratio":1
+    },
+
+    "grid":{
+        "split_grid_size":40.0
+    },
+
+    "plane_estimation":{
+        "distance_threshold":0.2,
+        "ransac_n":3,
+        "num_iterations":1000
+    }
+}
