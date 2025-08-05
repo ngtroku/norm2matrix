@@ -24,6 +24,7 @@ Calculate the transformation matrix from the normal vector and correct the tilt 
 # Prerequisites
 - python3
 - numpy
+- open3d
 # Usage
 ```
 git clone https://github.com/ngtroku/norm2matrix.git
